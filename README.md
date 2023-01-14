@@ -20,3 +20,5 @@ To use the Cisco PSIRT OpenVuln API console interface in Python, follow these st
 Note: Be sure to keep your Cisco account and API key private, and never share them with other
 
 Note: This script is using requests, argparse and json librares, please make sure you have them installed.
+
+Note: Unofficial software. I have no relation with Cisco or its partners.
