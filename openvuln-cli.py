@@ -1,5 +1,7 @@
+# BSD 3-Clause License
+# Copyright (c) 2023, cbk914
 # OpenVuln API cli
-# Author: cbk914
+
 import argparse
 import requests
 import json
