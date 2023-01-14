@@ -4,6 +4,8 @@ Interface to the OpenVuln API.
 
 **In order to use this script, you will need to have a valid Cisco PSIRT OpenVuln API username and API key.**
 
+is a command line interface (CLI) for the Cisco PSIRT OpenVuln API. It allows you to search for vulnerabilities by name or CVE, authenticate with the API, and retrieve vulnerability details. It also validates the data structure of the response and prints the vulnerability information to the console or exports it to a file.
+
 To use the Cisco PSIRT OpenVuln API console interface in Python, follow these steps:
 
 1. Make sure you have a valid Cisco account and API key. You will need to sign up for an account if you do not have one.
