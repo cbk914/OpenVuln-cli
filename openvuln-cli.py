@@ -4,35 +4,35 @@ import argparse
 import requests
 import json
 
-# Define the command line arguments
-parser = argparse.ArgumentParser()
-parser.add_argument("-v", "--vuln", required=True, help="Vulnerability ID")
-parser.add_argument("-o", "--output", help="Output file name")
+# Parse command line arguments
+parser = argparse.ArgumentParser(description='Retrieve information from Cisco PSIRT OpenVuln API')
+parser.add_argument('-v', '--vuln', required=True, help='Vulnerability ID')
+parser.add_argument('-o', '--output', help='Output file')
 args = parser.parse_args()
 
-# Build the API endpoint URL
-url = f"https://api.cisco.com/security/advisories/{args.vuln}"
+# Cisco PSIRT OpenVuln API endpoint and headers
+endpoint = 'https://api.cisco.com/security/advisories/'
+headers = {'Accept': 'application/json', 'Authorization': 'Basic YOUR_AUTH_TOKEN'}
 
-# Send the GET request
-response = requests.get(url)
+# Send GET request to retrieve vulnerability information
+response = requests.get(endpoint + args.vuln, headers=headers)
 
-# Check the response status code
+# Check if the request was successful
 if response.status_code != 200:
-    print(f"Error: Failed to get vulnerability details, status code: {response.status_code}")
+    print('Error: Failed to retrieve vulnerability information')
     exit(1)
 
-# Parse the JSON response
-vulnerability = json.loads(response.text)
+# Parse JSON response
+vuln_info = json.loads(response.text)
 
-# Print the vulnerability details
-print("Title:", vulnerability["title"])
-print("CVSS:", vulnerability["cvss"])
-print("CWE:", vulnerability["cwe"])
-print("CVSS Vector:", vulnerability["cvss-vector"])
-print("Description:", vulnerability["description"])
+# Print vulnerability information to console
+print('Vulnerability ID:', vuln_info['id'])
+print('CVSS Score:', vuln_info['cvss'])
+print('Title:', vuln_info['title'])
+print('Advisory:', vuln_info['advisory'])
 
 # Export the vulnerability details to a file
 if args.output:
     with open(args.output, "w") as f:
-        json.dump(vulnerability, f)
+        json.dump(vuln_info, f)
         print(f"Vulnerability details exported to {args.output}")
