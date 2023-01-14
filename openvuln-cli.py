@@ -87,7 +87,7 @@ if args.vuln:
         print('Error: Failed to retrieve vulnerability information')
         exit(1)        
 
-# Descargar el esquema de validación desde la API de Cisco PSIRT OpenVuln
+# Download validation schema from API de Cisco PSIRT OpenVuln
 schema_url = "https://api.cisco.com/security/advisories/psirt-openvuln/v1/schema"
 response = requests.get(schema_url)
 schema = json.loads(response.text)
