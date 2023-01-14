@@ -1,7 +1,5 @@
 # OpenVuln API cli
 # Author: cbk914
-# OpenVuln API cli
-# Author: cbk914
 import argparse
 import requests
 import json
