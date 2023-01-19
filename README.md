@@ -17,7 +17,7 @@ To use the Cisco PSIRT OpenVuln API console interface in Python, follow these st
 7. Use the -api or --api_key option to input your Cisco account API key. For example: "python openvuln-cli.py -v cisco-sa-20180829-asr1k -o results.txt -u my_username -api my_API_key"
 8. The script will use the provided credentials to authenticate with the Cisco PSIRT OpenVuln API and retrieve information about the specified vulnerability. The results will be printed to the console and, if specified, written to the specified .txt file.
 
-Note: Be sure to keep your Cisco account and API key private, and never share them with other
+Note: Be sure to keep your Cisco account and API key private, and never share them with others.
 
 Note: This script is using requests, argparse and json librares, please make sure you have them installed.
 
