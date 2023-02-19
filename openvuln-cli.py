@@ -1,5 +1,7 @@
-# BSD 3-Clause License
-# Copyright (c) 2023, cbk914
+
+#! /usr/bin/env python3
+# -*- coding: utf-8 -*-
+# Author: cbk914
 # OpenVuln API cli
 
 import argparse
