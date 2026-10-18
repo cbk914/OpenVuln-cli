@@ -1,4 +1,17 @@
-requests
-argparse
-json
-json_schema
+# OpenVuln-cli runtime dependencies.
+#
+# Third-party imports: requests (openvuln-cli.py:7), jsonschema (9).
+#
+# Removed, standard-library module: argparse, json, sys
+#
+# json_schema -> jsonschema. VERIFIED, this is not a typo: `json_schema` does
+# exist on PyPI (latest 0.3, "JSON schema definition and validation library").
+# It is however a Python-2-only package. Installing it succeeds, but importing
+# it raises on any Python 3:
+#     json_schema/tokens.py:173: in <module>
+#       valid_types = (unicode,)
+#     NameError: name 'unicode' is not defined
+# so `python openvuln-cli.py` could never run. openvuln-cli.py:9 and :102 are
+# updated in the same commit to the jsonschema equivalents.
+requests==2.31.0
+jsonschema==4.23.0

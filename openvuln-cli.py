@@ -6,7 +6,7 @@
 import argparse
 import requests
 import json
-from json_schema import validate
+from jsonschema import validate
 import sys
 
 if sys.version_info[0] >= 3:
@@ -99,7 +99,7 @@ schema = json.loads(response.text)
 try:
     validate(data, schema)
     print("JSON data structure is valid.")
-except json_schema.exceptions.ValidationError as e:
+except jsonschema.exceptions.ValidationError as e:
     print("JSON data structure is not valid.:", e)
     exit(1)    
 
